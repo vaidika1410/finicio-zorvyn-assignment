@@ -1,1 +1,10 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+img::selection{
+    background-color: transparent;
+}
+
+h1::selection, h2::selection, p::selection, a::selection, button::selection {
+    background-color: #cd77423a;
+    color: #ffceaf85;
+}
