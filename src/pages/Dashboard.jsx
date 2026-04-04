@@ -8,6 +8,8 @@ const Dashboard = () => {
     return (
         <MainLayout>
 
+            <h1 className="mb-4 text-3xl font-semibold">Dashboard</h1>
+
             <SummaryCards />
 
             <div className="mt-6 flex flex-col gap-3">
