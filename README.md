@@ -1,4 +1,4 @@
-# 💰 Finicio — Smart Finance Dashboard
+# Finicio — Smart Finance Dashboard
 
 Finicio is a modern, responsive finance dashboard designed to help users track expenses, analyze spending patterns, and gain actionable financial insights — all in one place.
 
@@ -6,45 +6,45 @@ Built with a strong focus on **clean UI, real-world UX patterns, and data visual
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 https://finicio.vercel.app
+https://finicio.vercel.app
 
 ---
 
-## 📸 Preview
+## Preview
 
 *Add screenshots here (Dashboard, Transactions, Analytics)*
 
 ---
 
-## ✨ Features
+## Features
 
-### 📊 Dashboard
+### Dashboard
 
 * Overview of financial data with summary cards
 * Interactive charts (Line, Bar, Radial)
 * Monthly trends visualization
 
-### 💳 Transactions
+### Transactions
 
 * Add, edit, delete transactions (Admin only)
 * Real-time updates with local storage persistence
 * Search and filter functionality
 * Export transactions as CSV
 
-### 📈 Analytics
+### Analytics
 
 * Income vs Expense comparison (multi-line chart)
 * Category distribution (radial chart)
 * Yearly financial trends
 
-### 🧠 Insights
+### Insights
 
 * Clean card-based UI for financial observations
 * Designed for extensibility with AI insights
 
-### 🎨 UI/UX
+### UI/UX
 
 * Fully responsive (mobile + desktop)
 * Dark / Light mode support
@@ -53,7 +53,7 @@ Built with a strong focus on **clean UI, real-world UX patterns, and data visual
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend:** React (Vite)
 * **State Management:** Zustand
@@ -65,7 +65,7 @@ Built with a strong focus on **clean UI, real-world UX patterns, and data visual
 
 ---
 
-## 🧩 Architecture Highlights
+## Architecture Highlights
 
 * Centralized state management using Zustand
 * Modular component-based structure
@@ -74,7 +74,7 @@ Built with a strong focus on **clean UI, real-world UX patterns, and data visual
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 src/
@@ -91,7 +91,7 @@ src/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ```bash
 # Clone the repository
@@ -109,7 +109,7 @@ npm run dev
 
 ---
 
-## 📦 Build
+## Build
 
 ```bash
 npm run build
@@ -117,7 +117,7 @@ npm run build
 
 ---
 
-## 🧪 Future Improvements
+## Future Improvements
 
 * Integration with backend APIs
 * Authentication & user accounts
@@ -127,19 +127,19 @@ npm run build
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to fork the repo and submit a PR.
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Vaidika**
 
@@ -147,6 +147,6 @@ This project is licensed under the MIT License.
 
 ---
 
-## ⭐ If you like this project
+## If you like this project
 
 Give it a star ⭐ — it helps a lot!
