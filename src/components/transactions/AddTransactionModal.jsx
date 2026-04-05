@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useFinanceStore } from "../../store/useFinanceStore";
 
 const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
-    const { darkMode } = useFinanceStore();
+    const { darkMode, updateTransaction } = useFinanceStore();
 
     const [form, setForm] = useState({
         date: "",
@@ -12,18 +12,46 @@ const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
         type: "expense",
     });
 
+    useEffect(() => {
+        if (initialData) {
+            setForm({
+                date: initialData.date || "",
+                category: initialData.category || "",
+                amount: initialData.amount || "",
+                type: initialData.type || "expense",
+            });
+        } else {
+            setForm({
+                date: "",
+                category: "",
+                amount: "",
+                type: "expense",
+            });
+        }
+    }, [initialData]);
+
     const handleSubmit = () => {
         if (!form.date || !form.category || !form.amount) return;
 
-        const newTx = {
+        const txData = {
             ...form,
-            id: Date.now(),
             amount: Number(form.amount),
         };
 
-        console.log("SENDING TO PARENT:", newTx);
+        if (initialData) {
+            // 🔥 EDIT
+            onAdd({
+                ...txData,
+                id: initialData.id, // keep same id
+            });
+        } else {
+            // 🔥 ADD
+            onAdd({
+                ...txData,
+                id: Date.now(),
+            });
+        }
 
-        onAdd(newTx);
         onClose();
     };
 
@@ -47,12 +75,14 @@ const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
 
                     <input
                         type="date"
+                        value={form.date}
                         className="p-2 rounded-lg border"
                         onChange={(e) => setForm({ ...form, date: e.target.value })}
                     />
 
                     <input
                         type="text"
+                        value={form.category}
                         placeholder="Category"
                         className="p-2 rounded-lg border"
                         onChange={(e) => setForm({ ...form, category: e.target.value })}
@@ -60,6 +90,7 @@ const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
 
                     <input
                         type="number"
+                        value={form.amount}
                         placeholder="Amount"
                         className="p-2 rounded-lg border"
                         onChange={(e) => setForm({ ...form, amount: e.target.value })}
@@ -67,6 +98,7 @@ const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
 
                     <select
                         className="p-2 rounded-lg border"
+                        value={form.type}
                         onChange={(e) => setForm({ ...form, type: e.target.value })}
                     >
                         <option value="expense">Expense</option>

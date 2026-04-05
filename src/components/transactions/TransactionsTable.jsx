@@ -1,7 +1,7 @@
 import { useFinanceStore } from "../../store/useFinanceStore";
 
 const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
-    const { role, darkMode } = useFinanceStore();
+    const { role, darkMode, openModal } = useFinanceStore();
 
     // const data = [
     //     { id: 1, date: "2026-04-01", category: "Food", amount: 500, type: "expense" },
