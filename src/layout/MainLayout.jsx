@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
       <div className="flex-1 ml-60">
         <Navbar />
 
-        <div className="p-6 mt-16">
+        <div className="p-6 mt-8">
           {children}
         </div>
       </div>
