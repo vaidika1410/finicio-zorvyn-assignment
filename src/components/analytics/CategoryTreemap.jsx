@@ -71,7 +71,7 @@ const CategoryTreemap = () => {
       className={`p-5 rounded-2xl transition-all
         ${
           darkMode
-            ? "bg-white/5 border border-white/10"
+            ? ""
             : "neu-card"
         }`}
     >
