@@ -7,7 +7,7 @@ export const useFinanceStore = create((set) => ({
 
     // theme
     darkMode: true,
-    toggleTheme: () => set((state) => ({ darkMode: !state.darkMode})),
+    toggleTheme: () => set((state) => ({ darkMode: !state.darkMode })),
 
     // active tab
     activeTab: "dashboard",
@@ -15,5 +15,20 @@ export const useFinanceStore = create((set) => ({
 
     // transactions
     transactions: [],
-    setTransactions: (data) => set({transactions: data})
+    setTransactions: (data) => set({ transactions: data }),
+
+    selectedTransaction: null,
+    isModalOpen: false,
+
+    openModal: (tx = null) =>
+        set({
+            selectedTransaction: tx,
+            isModalOpen: true,
+        }),
+
+    closeModal: () =>
+        set({
+            selectedTransaction: null,
+            isModalOpen: false,
+        }),
 }))
