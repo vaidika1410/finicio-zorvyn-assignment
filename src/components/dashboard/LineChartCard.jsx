@@ -176,7 +176,9 @@ const LineChartCard = () => {
                 >
                     <XAxis
                         dataKey={view === "monthly" ? "day" : "label"}
-                        interval={view === "monthly" ? 4 : 0}
+                        interval="preserveStartEnd"
+                        tick={{ fontSize: 10 }}
+                        tickMargin={8}
                         stroke={darkMode ? "#ccc" : "#555"}
                         padding={{ left: 10, right: 10 }}
                     />
