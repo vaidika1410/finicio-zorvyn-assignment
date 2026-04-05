@@ -24,7 +24,7 @@ function Navbar() {
             {/* Controls */}
             <div className="flex items-center gap-2 lg:gap-0 sm:gap-3 
                 border border-[#d7793e40] bg-white/5 backdrop-blur-md 
-                lg:px-1 sm:px-3 py-1 rounded-full shadow-[0_0_20px_rgba(215,121,62,0.2)]">
+                lg:px-1 px-2 sm:px-1 md:px-2 py-1 rounded-full shadow-[0_0_20px_rgba(215,121,62,0.2)]">
 
                 {/* Theme Toggle */}
                 <button
