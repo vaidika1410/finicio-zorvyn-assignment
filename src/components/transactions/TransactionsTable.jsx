@@ -98,14 +98,14 @@ const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
                                     <td>
                                         <button
                                             onClick={() => onEdit(tx)}
-                                            className="text-blue-400 hover:underline mr-2"
+                                            className="text-blue-400 hover:bg-blue-400/30 border rounded-full px-2"
                                         >
                                             Edit
                                         </button>
 
                                         <button
                                             onClick={() => onDelete(tx.id)}
-                                            className="text-red-400 hover:underline"
+                                            className="text-red-400 hover:bg-red-400/30 border rounded-full px-2 ml-2"
                                         >
                                             Delete
                                         </button>
