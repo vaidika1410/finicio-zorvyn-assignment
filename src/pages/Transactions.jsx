@@ -87,15 +87,17 @@ const Transactions = () => {
     return (
         <MainLayout>
 
-            <h1 className="mb-4 text-3xl font-semibold">Transactions</h1>
+            <h1 className="mb-4 text-2xl sm:text-3xl font-semibold">Transactions</h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
 
                 {/* LEFT SECTION */}
-                <div className="lg:col-span-2 flex flex-col gap-6">
+                <div className="lg:col-span-2 flex flex-col gap-5 sm:gap-6">
 
                     {/* HERO */}
-                    <TopSummary onAddClick={() => setShowModal(true)} onExport={handleExportCSV} />
+                    <div className="mt-2 sm:mt-0">
+                        <TopSummary onAddClick={() => setShowModal(true)} onExport={handleExportCSV} />
+                    </div>
 
                     {showModal && (
                         <AddTransactionModal
@@ -109,12 +111,20 @@ const Transactions = () => {
                     )}
 
                     {/* TABLE */}
-                    <TransactionsTable search={search} filter={filter} data={transactions} onEdit={handleEdit} onDelete={handleDelete} />
+                    <div className="overflow-x-auto">
+                        <TransactionsTable
+                            search={search}
+                            filter={filter}
+                            data={transactions}
+                            onEdit={handleEdit}
+                            onDelete={handleDelete}
+                        />
+                    </div>
 
                 </div>
 
                 {/* RIGHT SIDE PANEL */}
-                <div className="hidden lg:flex flex-col">
+                <div className="flex flex-col lg:col-span-1 gap-4">
                     <SideStats />
                 </div>
 
