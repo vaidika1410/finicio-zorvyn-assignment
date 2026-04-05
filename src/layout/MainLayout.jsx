@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import BottomNav from "../components/BottomNav";
 
 const MainLayout = ({ children }) => {
   return (
@@ -12,9 +13,13 @@ const MainLayout = ({ children }) => {
       <div className="flex-1 md:ml-60">
         <Navbar />
 
-        <div className="p-4 sm:p-6 mt-16">
+        <div className="p-4 sm:p-6 mt-16 mb-14">
           {children}
         </div>
+      </div>
+
+      <div className="block md:hidden">
+        <BottomNav />
       </div>
 
     </div>
