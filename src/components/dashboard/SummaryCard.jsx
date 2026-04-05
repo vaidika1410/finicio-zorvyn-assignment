@@ -4,7 +4,7 @@ const SummaryCard = ({ title, value, type, darkMode }) => {
     return (
         <motion.div
             whileHover={{ scale: 1.03 }}
-            className={`p-5 rounded-2xl transition-all
+            className={`p-5 rounded-2xl transition-all 
   ${darkMode
                     ? "bg-white/5 border border-white/10 backdrop-blur-md"
                     : "neu-card"
@@ -29,6 +29,7 @@ const SummaryCard = ({ title, value, type, darkMode }) => {
                         ? "↓ Expense"
                         : "Balance"}
             </span>
+
         </motion.div>
     )
 }

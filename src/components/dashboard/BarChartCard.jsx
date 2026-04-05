@@ -1,10 +1,13 @@
-import { useFinanceStore } from "../../store/useFinanceStore"
+import { useFinanceStore } from "../../store/useFinanceStore";
 import {
     BarChart,
     Bar,
     XAxis,
+    YAxis,
     Tooltip,
     ResponsiveContainer,
+    CartesianGrid,
+    Legend,
 } from "recharts";
 
 const data = [
@@ -15,31 +18,100 @@ const data = [
 ];
 
 function BarChartCard() {
-    const { darkMode } = useFinanceStore()
+    const { darkMode } = useFinanceStore();
 
     return (
         <div
-            className={`p-5 rounded-2xl transition-all
+            className={`p-5 rounded-2xl transition-all overflow-hidden
         ${darkMode
                     ? "bg-white/5 border border-white/10 backdrop-blur-md"
                     : "neu-card"
                 }`}
         >
-            <h2 className="text-lg font-semibold mb-4">
-                Income vs Expense
+            {/* Title */}
+            <h2 className="text-lg font-semibold mb-1">
+                Income vs Expenses
             </h2>
+            <p className="text-xs opacity-60 mb-4">
+                Monthly comparison of earnings and spending
+            </p>
 
-            <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={data}>
-                    <XAxis dataKey="month" stroke={darkMode ? "#ccc" : "#555"} />
-                    <Tooltip />
+            <ResponsiveContainer width="100%" height={350} className='mt-10'>
+                <BarChart
+                    data={data}
+                    margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
+                    barGap={8}
+                >
+                    {/* Grid */}
+                    <CartesianGrid
+                        strokeDasharray="4 4"
+                        stroke={darkMode ? "#ffffff12" : "#00000010"}
+                        vertical={false}
+                    />
 
-                    <Bar dataKey="income" fill="#22c55e" radius={[6, 6, 0, 0]} />
-                    <Bar dataKey="expense" fill="#ef4444" radius={[6, 6, 0, 0]} />
+                    {/* Axes */}
+                    <XAxis
+                        dataKey="month"
+                        stroke={darkMode ? "#ccc" : "#555"}
+                        tickLine={false}
+                        axisLine={false}
+                    />
+
+                    <YAxis
+                        stroke={darkMode ? "#ccc" : "#555"}
+                        tickLine={false}
+                        axisLine={false}
+                        tickFormatter={(val) => `₹${val / 1000}k`}
+                    />
+
+                    {/* Tooltip */}
+                    <Tooltip
+                        cursor={{ fill: "transparent" }}  // 🔥 removes grey hover bg
+                        formatter={(value, name) => [
+                            `₹${value}`,
+                            name === "income" ? "Income" : "Expense",
+                        ]}
+                        contentStyle={{
+                            backgroundColor: darkMode ? "#020617" : "#ffffff",
+                            borderRadius: "10px",
+                            border: "none",
+                            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+                            fontSize: "12px",
+                        }}
+                        labelStyle={{
+                            color: darkMode ? "#aaa" : "#555",
+                            fontSize: "11px",
+                        }}
+                    />
+
+                    {/* Legend */}
+                    <Legend
+                        wrapperStyle={{
+                            fontSize: "12px",
+                            opacity: 0.7,
+                        }}
+                    />
+
+                    {/* Bars */}
+                    <Bar
+                        dataKey="income"
+                        fill="#7c8cf8"
+                        radius={[6, 6, 0, 0]}
+                        name="Income"
+                        activeBar={{ fill: "#7c8cf8" }}
+                    />
+
+                    <Bar
+                        dataKey="expense"
+                        fill="#c08457"
+                        radius={[6, 6, 0, 0]}
+                        name="Expense"
+                        activeBar={{ fill: "#c08457" }}
+                    />
                 </BarChart>
             </ResponsiveContainer>
         </div>
-    )
+    );
 }
 
-export default BarChartCard
+export default BarChartCard;
