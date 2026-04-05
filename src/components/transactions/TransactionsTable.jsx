@@ -25,21 +25,21 @@ const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
                     : "neu-card"
                 }`}
         >
-            <table className="w-full text-sm text-left">
+            <table className="min-w-[600px] w-full text-sm text-left table-fixed">
 
                 {/* Header */}
                 <thead className="opacity-70">
                     <tr>
-                        <th className="py-3">Date</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Type</th>
-                        {role === "admin" && <th>Actions</th>}
+                        <th className="py-3 w-[20%]">Date</th>
+                        <th className="w-[30%]">Category</th>
+                        <th className="w-[20%]">Amount</th>
+                        <th className="w-[15%]">Type</th>
+                        {role === "admin" && <th className="w-[15%] text-right">Actions</th>}
                     </tr>
                 </thead>
 
                 {/* Body */}
-                <tbody>
+                <tbody className="text-xs sm:text-sm">
                     {filteredData.length === 0 ? (
                         <tr>
                             <td colSpan={role === "admin" ? 5 : 4} className="py-12">
@@ -78,7 +78,7 @@ const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
                                 <td>{tx.category}</td>
                                 <td className="font-medium">₹{tx.amount}</td>
 
-                                <td>
+                                <td className="whitespace-nowrap">
                                     <span
                                         className={`px-2 py-1 rounded-full text-xs
     ${tx.type === "income"
@@ -95,17 +95,17 @@ const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
                                 </td>
 
                                 {role === "admin" && (
-                                    <td>
+                                    <td className="whitespace-nowrap">
                                         <button
                                             onClick={() => onEdit(tx)}
-                                            className="text-blue-400 hover:bg-blue-400/30 border rounded-full px-2"
+                                            className="text-blue-400 hover:bg-blue-400/30 border rounded-full px-2 text-xs sm:text-sm"
                                         >
                                             Edit
                                         </button>
 
                                         <button
                                             onClick={() => onDelete(tx.id)}
-                                            className="text-red-400 hover:bg-red-400/30 border rounded-full px-2 ml-2"
+                                            className="text-red-400 hover:bg-red-400/30 border rounded-full px-2 ml-2 text-xs sm:text-sm"
                                         >
                                             Delete
                                         </button>
