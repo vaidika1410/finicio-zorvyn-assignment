@@ -9,10 +9,17 @@ function Navbar() {
         <div className="w-full fixed top-0 left-0 flex items-center justify-between px-4 sm:px-6 py-3 z-50">
 
             {/* Logo */}
-            <h1 className="text-lg sm:text-xl font-bold tracking-wide 
-                bg-gradient-to-r from-[#d7793ee1] to-[#ffffffde] bg-clip-text text-transparent">
-                Finicio<span className="text-[#d7793ee1]">.</span>
-            </h1>
+            <a href="/">
+                <h1
+                    className={`text-lg sm:text-xl font-bold tracking-wide bg-gradient-to-r bg-clip-text text-transparent
+                    ${darkMode
+                            ? "from-[#d7793ee1] to-[#ffffffde]"
+                            : "from-[#d7793ee1] to-[#000000]"
+                        }`}
+                >
+                    Finicio<span className="text-[#d7793ee1]">.</span>
+                </h1>
+            </a>
 
             {/* Controls */}
             <div className="flex items-center gap-2 lg:gap-0 sm:gap-3 
