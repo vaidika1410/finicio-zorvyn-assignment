@@ -10,15 +10,15 @@ const LandingPage = () => {
   const { darkMode } = useFinanceStore()
 
   return (
-    <div className={`flex flex-col items-center justify-center text-center h-screen overflow-y-hidden
+    <div className={`flex flex-col items-center justify-center text-center min-h-screen overflow-x-hidden
     ${darkMode ? "bg-[#000]" : "bg-[#D9D7D8]"}
     `}>
 
       <Navbar />
 
-      <div className="flex flex-col items-center justify-center h-full w-full text-center px-4 overflow-hidden ">
+      <div className="relative flex flex-col items-center justify-center min-h-screen w-full text-center px-4 pt-20 pb-24">
         {/* Brand */}
-        <h1 className={`text-[10vh] sm:text-[12vh] md:text-[14vh] lg:text-[18vh] font-extrabold mb-4 font-mono absolute top-10 sm:top-12 md:top-14 lg:top-16 ${darkMode ? "text-[#cd77422f]" : "text-[#8b4e28]"}`}>
+        <h1 className={`text-[10vh] sm:text-[12vh] md:text-[14vh] lg:text-[18vh] font-extrabold mb-4 font-mono absolute top-16 sm:top-20 md:top-24 lg:top-16 ${darkMode ? "text-[#cd77422f]" : "text-[#8b4e28]"}`}>
           Finicio
         </h1>
 
