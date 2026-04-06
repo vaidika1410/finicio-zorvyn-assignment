@@ -1,6 +1,6 @@
 import { useFinanceStore } from "../../store/useFinanceStore";
 
-const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
+const TransactionsTable = ({ search, filter, data, onEdit, onDelete, sortBy, order, setSortBy, setOrder }) => {
     const { role, darkMode, openModal } = useFinanceStore();
 
     // const data = [
@@ -9,13 +9,31 @@ const TransactionsTable = ({ search, filter, data, onEdit, onDelete }) => {
     //     { id: 3, date: "2026-04-03", category: "Shopping", amount: 2000, type: "expense" },
     // ];
 
-    const filteredData = data.filter((tx) => {
-        const matchesSearch = tx.category.toLowerCase().includes(search.toLowerCase())
+    const filteredData = data
+        .filter((tx) => {
+            const matchesSearch = tx.category
+                .toLowerCase()
+                .includes(search.toLowerCase());
 
-        const matchesFilter = filter === 'all' || tx.type === filter
+            const matchesFilter = filter === "all" || tx.type === filter;
 
-        return matchesFilter && matchesSearch
-    })
+            return matchesFilter && matchesSearch;
+        })
+        .sort((a, b) => {
+            if (sortBy === "amount") {
+                return order === "asc"
+                    ? a.amount - b.amount
+                    : b.amount - a.amount;
+            }
+
+            if (sortBy === "date") {
+                return order === "asc"
+                    ? new Date(a.date) - new Date(b.date)
+                    : new Date(b.date) - new Date(a.date);
+            }
+
+            return 0;
+        });
 
     return (
         <div
