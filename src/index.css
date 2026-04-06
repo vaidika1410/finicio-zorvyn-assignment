@@ -46,3 +46,7 @@ h1::selection, h2::selection, span::selection, p::selection, a::selection, butto
     inset 4px 4px 10px #d1d9e6,
     inset -4px -4px 10px #ffffff;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
