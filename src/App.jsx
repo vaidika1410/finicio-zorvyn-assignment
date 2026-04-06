@@ -11,6 +11,14 @@ function App() {
 
   const { darkMode } = useFinanceStore()
 
+  const savedTheme = JSON.parse(localStorage.getItem("darkMode"));
+
+  if (savedTheme) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
   return (
     <div
       className={`min-h-screen ${darkMode
