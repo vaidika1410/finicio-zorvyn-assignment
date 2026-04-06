@@ -6,6 +6,7 @@ import { useState } from "react";
 import SideStats from "../components/transactions/SideStats";
 import AddTransactionModal from "../components/transactions/AddTransactionModal";
 import { useEffect } from "react";
+import FilterDropdown from "../components/FilterDropdown";
 
 const Transactions = () => {
 
@@ -17,6 +18,9 @@ const Transactions = () => {
         const saved = localStorage.getItem("transactions")
         return saved ? JSON.parse(saved) : []
     });
+
+    const [sortBy, setSortBy] = useState("date");
+    const [order, setOrder] = useState("desc");
 
     const [editingTx, setEditingTx] = useState(null);
 
@@ -112,12 +116,34 @@ const Transactions = () => {
 
                     {/* TABLE */}
                     <div className="overflow-x-auto">
+                        <div className="flex flex-col sm:flex-row gap-3 mb-4">
+
+                            {/* Search */}
+                            <input
+                                type="text"
+                                placeholder="Search by category..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className={`px-4 py-2 rounded-lg border  outline-none text-sm ${darkMode ? "border-white/15" : "border-black/15"}
+    w-full sm:w-[250px]
+    bg-transparent`}
+                            />
+
+                            {/* Filter */}
+                            <FilterDropdown value={filter} setValue={setFilter} />
+
+                        </div>
+
                         <TransactionsTable
                             search={search}
                             filter={filter}
                             data={transactions}
                             onEdit={handleEdit}
                             onDelete={handleDelete}
+                            sortBy={sortBy}
+                            order={order}
+                            setSortBy={setSortBy}
+                            setOrder={setOrder}
                         />
                     </div>
 
