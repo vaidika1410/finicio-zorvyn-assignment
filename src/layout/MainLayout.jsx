@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import BottomNav from "../components/BottomNav";
+import NotesWidget from "../components/notes/NotesWidget";
 
 const MainLayout = ({ children }) => {
   return (
@@ -17,6 +18,8 @@ const MainLayout = ({ children }) => {
           {children}
         </div>
       </div>
+
+      <NotesWidget />
 
       <div className="block md:hidden">
         <BottomNav />
