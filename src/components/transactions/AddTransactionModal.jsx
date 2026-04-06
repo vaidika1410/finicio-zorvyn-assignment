@@ -5,6 +5,8 @@ import { useFinanceStore } from "../../store/useFinanceStore";
 const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
     const { darkMode, updateTransaction } = useFinanceStore();
 
+    const [open, setOpen] = useState(false);
+
     const [form, setForm] = useState({
         date: "",
         category: "",
@@ -96,14 +98,46 @@ const AddTransactionModal = ({ onClose, onAdd, initialData }) => {
                         onChange={(e) => setForm({ ...form, amount: e.target.value })}
                     />
 
-                    <select
-                        className="p-2 rounded-lg border"
-                        value={form.type}
-                        onChange={(e) => setForm({ ...form, type: e.target.value })}
-                    >
-                        <option value="expense">Expense</option>
-                        <option value="income">Income</option>
-                    </select>
+                    <div className="relative">
+                        <button
+                            onClick={() => setOpen((prev) => !prev)}
+                            className={`w-full p-2 rounded-lg flex justify-between items-center
+    ${darkMode
+                                    ? "bg-white/5 border border-white/10"
+                                    : "bg-white/5 border"
+                                }`}
+                        >
+                            <span className="capitalize">{form.type}</span>
+                            <span className="text-xs opacity-60">▼</span>
+                        </button>
+
+                        {open && (
+                            <div
+                                className={`absolute mt-2 w-full rounded-lg overflow-hidden z-50
+      ${darkMode
+                                        ? "bg-[#684c3af7] border border-white/10"
+                                        : "bg-[#e6e6e6f0] border border-gray-200 shadow-md"
+                                    }`}
+                            >
+                                {["expense", "income"].map((type) => (
+                                    <div
+                                        key={type}
+                                        onClick={() => {
+                                            setForm({ ...form, type });
+                                            setOpen(false);
+                                        }}
+                                        className={`px-3 py-2 cursor-pointer capitalize transition
+                                            ${darkMode
+                                                ? "hover:bg-white/10"
+                                                : "hover:bg-gray-100"
+                                            }`}
+                                    >
+                                        {type}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
 
                 </div>
 
