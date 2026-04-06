@@ -32,10 +32,9 @@ const IncomeExpenseChart = () => {
   return (
     <div
       className={`p-6 rounded-2xl w-full transition-all overflow-hidden
-        ${
-          darkMode
-            ? ""
-            : "neu-card"
+        ${darkMode
+          ? ""
+          : "neu-card"
         }`}
     >
       {/* Header */}
@@ -61,8 +60,10 @@ const IncomeExpenseChart = () => {
           {/* X Axis */}
           <XAxis
             dataKey="month"
-            interval={0}
             stroke={darkMode ? "#aaa" : "#666"}
+            interval="preserveStartEnd"
+            tick={{ fontSize: 10 }}
+            tickMargin={8}
             tickLine={false}
             axisLine={false}
           />
