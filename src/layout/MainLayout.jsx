@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
         <Sidebar />
       </div>
 
-      <div className="flex-1 md:ml-60">
+      <div id="main-content" className="flex-1 md:ml-60 overflow-y-auto h-screen">
         <Navbar />
 
         <div className="p-4 sm:p-6 mt-16 mb-14">

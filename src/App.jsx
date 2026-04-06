@@ -6,6 +6,7 @@ import Insights from "./pages/Insights";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import { useFinanceStore } from "./store/useFinanceStore";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         }`}
     >
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard />} />
