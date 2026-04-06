@@ -11,9 +11,20 @@ img::selection{
     background-color: transparent;
 }
 
-h1::selection, h2::selection, span::selection, p::selection, a::selection, button::selection {
-    background-color: #cb7844b1;
-    color: #f9d5beab;
+h1::selection, h2::selection, span::selection, p::selection, div::selection, a::selection, button::selection {
+    background-color: #e1b192b1;
+    color: #d46e2ee8;
+}
+
+.dark h1::selection,
+.dark h2::selection,
+.dark span::selection,
+.dark p::selection,
+.dark div::selection,
+.dark a::selection,
+.dark button::selection {
+  background-color: #d7793e66;
+  color: #ffffff;
 }
 
 .animate-dropdown {
